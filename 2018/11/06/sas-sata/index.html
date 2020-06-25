@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Abbreviations   Abbreviation Acronym for     ATA, IDE Advanced Technology Attachment, Integrated Drive Electronics   SATA Serial ATA   SCSI Small Computer System Interface   SAS Serial Attached SCSI">
+<meta name="keywords" content="storage,interface">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ATA, SATA, SCSI and SAS">
+<meta property="og:url" content="xvirt.ink/2018/11/06/sas-sata/index.html">
+<meta property="og:site_name" content="xvirt">
+<meta property="og:description" content="Abbreviations   Abbreviation Acronym for     ATA, IDE Advanced Technology Attachment, Integrated Drive Electronics   SATA Serial ATA   SCSI Small Computer System Interface   SAS Serial Attached SCSI">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="xvirt.ink/2018/11/06/sas-sata/SAS_roadmap.jpg">
+<meta property="og:updated_time" content="2018-11-16T12:46:31.267Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ATA, SATA, SCSI and SAS">
+<meta name="twitter:description" content="Abbreviations   Abbreviation Acronym for     ATA, IDE Advanced Technology Attachment, Integrated Drive Electronics   SATA Serial ATA   SCSI Small Computer System Interface   SAS Serial Attached SCSI">
+<meta name="twitter:image" content="xvirt.ink/2018/11/06/sas-sata/SAS_roadmap.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/cherry_256.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/cherry_android_192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/cherry_apple.png">
+          
+        
+    
+    <!-- title -->
+    <title>ATA, SATA, SCSI and SAS</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives">Posts</a></li>
+         
+          <li><a href="/Search/">Search</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/11/16/memory-layout/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/10/03/linux-weather-forecast/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=xvirt.ink/2018/11/06/sas-sata/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=xvirt.ink/2018/11/06/sas-sata/&text=ATA, SATA, SCSI and SAS"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=xvirt.ink/2018/11/06/sas-sata/&is_video=false&description=ATA, SATA, SCSI and SAS"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ATA, SATA, SCSI and SAS&body=Check out this article: xvirt.ink/2018/11/06/sas-sata/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=xvirt.ink/2018/11/06/sas-sata/&name=ATA, SATA, SCSI and SAS&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Abbreviations"><span class="toc-number">1.</span> <span class="toc-text">Abbreviations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Standard-Committes"><span class="toc-number">2.</span> <span class="toc-text">Standard Committes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Industry-Alliances"><span class="toc-number">3.</span> <span class="toc-text">Industry Alliances</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Roadmaps"><span class="toc-number">4.</span> <span class="toc-text">Roadmaps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compare"><span class="toc-number">5.</span> <span class="toc-text">Compare</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        ATA, SATA, SCSI and SAS
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">xvirt</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-11-06T14:31:44.000Z" itemprop="datePublished">2018-11-06</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/interface/">interface</a>, <a class="tag-link" href="/tags/storage/">storage</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="Abbreviations"><a href="#Abbreviations" class="headerlink" title="Abbreviations"></a>Abbreviations</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">Abbreviation</th>
+<th style="text-align:left">Acronym for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ATA, IDE</td>
+<td style="text-align:left">Advanced Technology Attachment, Integrated Drive Electronics</td>
+</tr>
+<tr>
+<td style="text-align:left">SATA</td>
+<td style="text-align:left">Serial ATA</td>
+</tr>
+<tr>
+<td style="text-align:left">SCSI</td>
+<td style="text-align:left">Small Computer System Interface</td>
+</tr>
+<tr>
+<td style="text-align:left">SAS</td>
+<td style="text-align:left">Serial Attached SCSI</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Standard-Committes"><a href="#Standard-Committes" class="headerlink" title="Standard Committes"></a>Standard Committes</h3><ul>
+<li><a href="http://www.incits.org/" target="_blank" rel="noopener">incits</a>:  InterNational Committee for Information Technology Standards<ul>
+<li><a href="http://t10.org/" target="_blank" rel="noopener">t10</a>: Technical Committee T10, SCSI Storage Interfaces</li>
+<li><a href="http://t13.org/" target="_blank" rel="noopener">t13</a>: Technical Committee T13, ATA Interfaces</li>
+<li><a href="http://www.incits.org/committees/" target="_blank" rel="noopener">committees</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Industry-Alliances"><a href="#Industry-Alliances" class="headerlink" title="Industry Alliances"></a>Industry Alliances</h3><ul>
+<li><a href="http://www.scsita.org/content/" target="_blank" rel="noopener">SCSI Trade Alliance</a></li>
+</ul>
+<h3 id="Roadmaps"><a href="#Roadmaps" class="headerlink" title="Roadmaps"></a>Roadmaps</h3><ul>
+<li>SAS Roadmap<br><img src="SAS_roadmap.jpg" alt="SAS Roadmap"></li>
+</ul>
+<h3 id="Compare"><a href="#Compare" class="headerlink" title="Compare"></a>Compare</h3><ul>
+<li><a href="https://www.webopedia.com/DidYouKnow/Computer_Science/sas_sata.asp" target="_blank" rel="noopener">SAS, SATA, SCSI and ATA</a></li>
+<li>SAS vs SATA: reliability, error bit rate, MTBF, error recovery/detection, silent data corruption, RV compensation feedback mechanism <ul>
+<li><a href="https://www.intel.com/content/www/us/en/support/articles/000005782/server-products.html" target="_blank" rel="noopener">Intel</a></li>
+<li><a href="https://www.diffen.com/difference/SATA_vs_Serial_Attached_SCSI#SATA_and_SATA_Revisions" target="_blank" rel="noopener">Diffen</a></li>
+<li><a href="http://www.enterprisestorageforum.com/storage-networking/sas-vs-sata.html" target="_blank" rel="noopener">EnterpriseStorageForum</a></li>
+</ul>
+</li>
+<li><a href="https://www.computerworld.com/article/2574104/data-center/serial-vs--parallel-storage.html" target="_blank" rel="noopener">Serial vs Parallel</a>: signal skewing, crosstalk</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives">Posts</a></li>
+         
+          <li><a href="/Search/">Search</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Abbreviations"><span class="toc-number">1.</span> <span class="toc-text">Abbreviations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Standard-Committes"><span class="toc-number">2.</span> <span class="toc-text">Standard Committes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Industry-Alliances"><span class="toc-number">3.</span> <span class="toc-text">Industry Alliances</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Roadmaps"><span class="toc-number">4.</span> <span class="toc-text">Roadmaps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compare"><span class="toc-number">5.</span> <span class="toc-text">Compare</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=xvirt.ink/2018/11/06/sas-sata/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=xvirt.ink/2018/11/06/sas-sata/&text=ATA, SATA, SCSI and SAS"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=xvirt.ink/2018/11/06/sas-sata/&is_video=false&description=ATA, SATA, SCSI and SAS"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ATA, SATA, SCSI and SAS&body=Check out this article: xvirt.ink/2018/11/06/sas-sata/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=xvirt.ink/2018/11/06/sas-sata/&title=ATA, SATA, SCSI and SAS"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=xvirt.ink/2018/11/06/sas-sata/&name=ATA, SATA, SCSI and SAS&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Henry
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives">Posts</a></li>
+         
+          <li><a href="/Search/">Search</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

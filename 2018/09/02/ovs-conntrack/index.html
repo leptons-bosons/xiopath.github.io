@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="OVS can be used with the Connection tracking system where OpenFlow flow can be used to match on the state of a TCP, UDP, ICMP, etc., connections. (Connection tracking system supports tracking of both">
+<meta name="keywords" content="Open vSwitch,conntrack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Open vSwitch Conntrack">
+<meta property="og:url" content="xvirt.ink/2018/09/02/ovs-conntrack/index.html">
+<meta property="og:site_name" content="xvirt">
+<meta property="og:description" content="OVS can be used with the Connection tracking system where OpenFlow flow can be used to match on the state of a TCP, UDP, ICMP, etc., connections. (Connection tracking system supports tracking of both">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="xvirt.ink/2018/09/02/ovs-conntrack/ovs-conntrack-bridge.png">
+<meta property="og:image" content="xvirt.ink/2018/09/02/ovs-conntrack/old-ovs-in-openstack.png">
+<meta property="og:image" content="xvirt.ink/2018/09/02/ovs-conntrack/new-ovs-conntract.png">
+<meta property="og:updated_time" content="2018-09-09T14:32:03.348Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Open vSwitch Conntrack">
+<meta name="twitter:description" content="OVS can be used with the Connection tracking system where OpenFlow flow can be used to match on the state of a TCP, UDP, ICMP, etc., connections. (Connection tracking system supports tracking of both">
+<meta name="twitter:image" content="xvirt.ink/2018/09/02/ovs-conntrack/ovs-conntrack-bridge.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/cherry_256.png">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/cherry_android_192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/cherry_apple.png">
+          
+        
+    
+    <!-- title -->
+    <title>Open vSwitch Conntrack</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives">Posts</a></li>
+         
+          <li><a href="/Search/">Search</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/09/07/netfilter/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/09/02/Run-Ovs-with-ovs-sandbox/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=xvirt.ink/2018/09/02/ovs-conntrack/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=xvirt.ink/2018/09/02/ovs-conntrack/&text=Open vSwitch Conntrack"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=xvirt.ink/2018/09/02/ovs-conntrack/&is_video=false&description=Open vSwitch Conntrack"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Open vSwitch Conntrack&body=Check out this article: xvirt.ink/2018/09/02/ovs-conntrack/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=xvirt.ink/2018/09/02/ovs-conntrack/&name=Open vSwitch Conntrack&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Match-Fields"><span class="toc-number">1.</span> <span class="toc-text">Match Fields</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Actions"><span class="toc-number">2.</span> <span class="toc-text">Actions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Enviroment"><span class="toc-number">3.</span> <span class="toc-text">Setup Enviroment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shorten-Packet-Path-in-Openstack-with-conntrack-support"><span class="toc-number">4.</span> <span class="toc-text">Shorten Packet Path in Openstack with conntrack support</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-number">5.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Open vSwitch Conntrack
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">xvirt</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-09-02T11:20:00.000Z" itemprop="datePublished">2018-09-02</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Open-vSwitch/">Open vSwitch</a>, <a class="tag-link" href="/tags/conntrack/">conntrack</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>OVS can be used with the Connection tracking system where OpenFlow flow can be used to match on the state of a TCP, UDP, ICMP, etc., connections. (Connection tracking system supports tracking of both statefull and stateless protocols)</p>
+<h3 id="Match-Fields"><a href="#Match-Fields" class="headerlink" title="Match Fields"></a>Match Fields</h3><ul>
+<li><strong>ct_state</strong>: new, est, rel, rpl, inv, trk, snat, dnat</li>
+<li><strong>ct_zone</strong>: A zone is an independent connection tracking context which can be set by a ct action. A 16-bit ct_zone set by the most recent ct action (by an OpenFlow flow on a conntrack entry) can be used as a match field in another flow entry.</li>
+<li><strong>ct_mark</strong>: The 32-bit metadata committed, by an action within the exec parameter to the ct action, to the connection to which the current packet belongs.</li>
+<li><strong>ct_label</strong>: The 128-bit label committed by an action within the exec parameter to the ct action, to the connection to which the current packet belongs.</li>
+<li><strong>ct_nw_src/ct_ipv6_src</strong>: Matches IPv4/IPv6 conntrack original direction tuple source address.</li>
+<li><strong>ct_nw_dst/ct_ipv6_dst</strong>: Matches IPv4/IPv6 conntrack original direction tuple destination address.</li>
+<li><strong>ct_nw_proto</strong>: Matches conntrack original direction tuple IP protocol type.</li>
+<li><strong>ct_tp_src</strong>: Matches on the conntrack original direction tuple transport source port.</li>
+<li><strong>ct_tp_dst</strong>: Matches on the conntrack original direction tuple transport destination port.</li>
+</ul>
+<h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><ul>
+<li><strong>commit</strong>: Commit the connection to the connection tracking module which will be stored beyond the lifetime of packet in the pipeline.</li>
+<li><strong>force</strong>: The force flag may be used in addition to commit flag to effectively terminate the existing connection and start a new one in the current direction.</li>
+<li><strong>table=number</strong>: Fork pipeline processing in two. The original instance of the packet will continue processing the current actions list as an untracked packet. An additional instance of the packet will be sent to the connection tracker, which will be re-injected into the OpenFlow pipeline to resume processing in table number, with the ct_state and other ct match fields set.</li>
+<li><strong>zone=value OR zone=src[start..end]</strong>: A 16-bit context id that can be used to isolate connections into separate domains, allowing over‐lapping network addresses in different zones. If a zone is not provided, then the default is to use zone zero.</li>
+<li>exec([action][,action…])**: Perform restricted set of actions within the context of connection tracking. Only actions which modify the ct_mark or ct_label fields are accepted within the exec action.</li>
+<li><strong>alg=&lt;ftp/tftp&gt;</strong>: Specify alg (application layer gateway) to track specific connection types.</li>
+<li><strong>nat</strong>: Specifies the address and port translation for the connection being tracked.</li>
+</ul>
+<h3 id="Setup-Enviroment"><a href="#Setup-Enviroment" class="headerlink" title="Setup Enviroment"></a>Setup Enviroment</h3><ul>
+<li><p>Topology for conntrack testing<br><img src="ovs-conntrack-bridge.png" alt="Topology for conntrack testing"></p>
+</li>
+<li><p>Start openvswitch service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/local/share/openvswitch/scripts/ovs-ctl start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create bridge, namespace and port</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ ip netns add left</span><br><span class="line">$ ip netns add right</span><br><span class="line">$</span><br><span class="line">$ ip link add veth_l0 type veth peer name veth_l1</span><br><span class="line">$ ip link set veth_l1 netns left</span><br><span class="line">$ ip link add veth_r0 type veth peer name veth_r1</span><br><span class="line">$ ip link set veth_r1 netns right</span><br><span class="line">$</span><br><span class="line">$ ovs-vsctl add-br br0</span><br><span class="line">$ ovs-vsctl add-port br0 veth_l0</span><br><span class="line">$ ovs-vsctl add-port br0 veth_r0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Add flows</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$ ovs-ofctl add-flow br0 \</span><br><span class="line">    &quot;table=0, priority=10, in_port=veth_l0, actions=veth_r0&quot;</span><br><span class="line">$ ovs-ofctl add-flow br0 \</span><br><span class="line">    &quot;table=0, priority=10, in_port=veth_r0, actions=veth_l0&quot;</span><br><span class="line">$</span><br><span class="line">$ ovs-ofctl add-flow br0 \</span><br><span class="line">   &quot;table=0, priority=50, ct_state=-trk, tcp, in_port=veth_l0, actions=ct(table=0)&quot;</span><br><span class="line">$ ovs-ofctl add-flow br0 \</span><br><span class="line">    &quot;table=0, priority=50, ct_state=+new, tcp, in_port=veth_l0, actions=ct(commit),veth_r0&quot;</span><br><span class="line">$</span><br><span class="line">$ ovs-ofctl add-flow br0 \</span><br><span class="line">    &quot;table=0, priority=50, ct_state=-trk, tcp, in_port=veth_r0, actions=ct(table=0)&quot;</span><br><span class="line">$ ovs-ofctl add-flow br0 \</span><br><span class="line">    &quot;table=0, priority=50, ct_state=+est, tcp, in_port=veth_r0, actions=veth_l0&quot;</span><br><span class="line">$</span><br><span class="line">$ ovs-ofctl add-flow br0 \</span><br><span class="line">    &quot;table=0, priority=50, ct_state=+est, tcp, in_port=veth_l0, actions=veth_r0&quot;</span><br><span class="line">$</span><br><span class="line"># ovs-ofctl dump-flows br0</span><br><span class="line"> cookie=0x0, duration=1405.483s, table=0, n_packets=0, n_bytes=0, priority=50,ct_state=-trk,tcp,in_port=&quot;veth_l0&quot; actions=ct(table=0)</span><br><span class="line"> cookie=0x0, duration=43.364s, table=0, n_packets=0, n_bytes=0, priority=50,ct_state=-trk,tcp,in_port=&quot;veth_r0&quot; actions=ct(table=0)</span><br><span class="line"> cookie=0x0, duration=59.531s, table=0, n_packets=0, n_bytes=0, priority=50,ct_state=+new,tcp,in_port=&quot;veth_l0&quot; actions=ct(commit),output:&quot;veth_r0&quot;</span><br><span class="line"> cookie=0x0, duration=33.071s, table=0, n_packets=0, n_bytes=0, priority=50,ct_state=+est,tcp,in_port=&quot;veth_r0&quot; actions=output:&quot;veth_l0&quot;</span><br><span class="line"> cookie=0x0, duration=20.592s, table=0, n_packets=0, n_bytes=0, priority=50,ct_state=+est,tcp,in_port=&quot;veth_l0&quot; actions=output:&quot;veth_r0&quot;</span><br><span class="line"> cookie=0x0, duration=1423.495s, table=0, n_packets=0, n_bytes=0, priority=10,in_port=&quot;veth_l0&quot; actions=output:&quot;veth_r0&quot;</span><br><span class="line"> cookie=0x0, duration=1414.843s, table=0, n_packets=0, n_bytes=0, priority=10,in_port=&quot;veth_r0&quot; actions=output:&quot;veth_l0&quot;</span><br><span class="line"> cookie=0x0, duration=1448.989s, table=0, n_packets=0, n_bytes=0, priority=0 actions=NORMAL</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Install <a href="https://scapy.net" target="_blank" rel="noopener">scapy</a>, <a href="https://scapy.readthedocs.io/en/latest/installation.html" target="_blank" rel="noopener">installation guide</a></p>
+</li>
+<li><p>Send packet with scapy, connection setup, transfer data, and connection teardown.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ip netns exec left sudo ip link set lo up</span><br><span class="line">$ sudo ip netns exec left sudo ip link set veth_l1 up</span><br><span class="line">$ sudo ip netns exec right sudo ip link set lo up</span><br><span class="line">$ sudo ip netns exec right sudo ip link set veth_r1 up</span><br><span class="line">$ sudo ifconfig veth_l0 up</span><br><span class="line">$ sudo ifconfig veth_r0 up</span><br><span class="line"></span><br><span class="line">$ sudo ip netns exec left sudo `which scapy`</span><br><span class="line">$ sudo ip netns exec right sudo `which scapy`</span><br><span class="line">$</span><br><span class="line">$ &gt;&gt;&gt; sendp(Ether()/IP(src=&quot;192.168.0.2&quot;, dst=&quot;10.0.0.2&quot;)/TCP(sport=1024, dport=2048, flags=0x02, seq=100), iface=&quot;veth_l1&quot;)</span><br><span class="line">$ &gt;&gt;&gt; sendp(Ether()/IP(src=&quot;10.0.0.2&quot;, dst=&quot;192.168.0.2&quot;)/TCP(sport=2048, dport=1024, flags=0x12, seq=200, ack=101), iface=&quot;veth_r1&quot;)</span><br><span class="line">$ &gt;&gt;&gt; sendp(Ether()/IP(src=&quot;192.168.0.2&quot;, dst=&quot;10.0.0.2&quot;)/TCP(sport=1024, dport=2048, flags=0x10, seq=101, ack=201), iface=&quot;veth_l1&quot;)</span><br><span class="line">$</span><br><span class="line">$ &gt;&gt;&gt; sendp(Ether()/IP(src=&quot;192.168.0.2&quot;, dst=&quot;10.0.0.2&quot;)/TCP(sport=1024, dport=2048, flags=0x10, seq=101, ack=201)/&quot;X&quot;, iface=&quot;veth_l1&quot;)</span><br><span class="line">$ &gt;&gt;&gt; sendp(Ether()/IP(src=&quot;10.0.0.2&quot;, dst=&quot;192.168.0.2&quot;)/TCP(sport=2048, dport=1024, flags=0X10, seq=201, ack=102), iface=&quot;veth_r1&quot;)</span><br><span class="line">$</span><br><span class="line">$ &gt;&gt;&gt; sendp(Ether()/IP(src=&quot;192.168.0.2&quot;, dst=&quot;10.0.0.2&quot;)/TCP(sport=1024, dport=2048, flags=0x11, seq=102, ack=201), iface=&quot;veth_l1&quot;)</span><br><span class="line">$ &gt;&gt;&gt; sendp(Ether()/IP(src=&quot;10.0.0.2&quot;, dst=&quot;192.168.0.2&quot;)/TCP(sport=2048, dport=1024, flags=0X11, seq=201, ack=103), iface=&quot;veth_r1&quot;)</span><br><span class="line">$ &gt;&gt;&gt; sendp(Ether()/IP(src=&quot;192.168.0.2&quot;, dst=&quot;10.0.0.2&quot;)/TCP(sport=1024, dport=2048, flags=0x10, seq=103, ack=202), iface=&quot;veth_l1&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Monitor the conntrack and flow changes</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=SYN_SENT)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=ESTABLISHED)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=ESTABLISHED)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=ESTABLISHED)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=ESTABLISHED)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=FIN_WAIT_1)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=LAST_ACK)</span><br><span class="line"># ovs-appctl dpctl/dump-conntrack | grep 1024</span><br><span class="line">tcp,orig=(src=192.168.0.2,dst=10.0.0.2,sport=1024,dport=2048),reply=(src=10.0.0.2,dst=192.168.0.2,sport=2048,dport=1024),protoinfo=(state=TIME_WAIT)</span><br><span class="line">$</span><br><span class="line"># ovs-appctl dpctl/dump-flows</span><br><span class="line">recirc_id(0),in_port(3),ct_state(-trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:ct,recirc(0xa)</span><br><span class="line">recirc_id(0xa),in_port(3),ct_state(-new+est+trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:2</span><br><span class="line"># ovs-appctl dpctl/dump-flows</span><br><span class="line">recirc_id(0xb),in_port(2),ct_state(-new+est+trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:3</span><br><span class="line">recirc_id(0),in_port(2),ct_state(-trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:ct,recirc(0xb)</span><br><span class="line"># ovs-appctl dpctl/dump-flows</span><br><span class="line">recirc_id(0xd),in_port(3),ct_state(-new+est+trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:2</span><br><span class="line">recirc_id(0),in_port(3),ct_state(-trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:ct,recirc(0xd)</span><br><span class="line"># ovs-appctl dpctl/dump-flows</span><br><span class="line">recirc_id(0xf),in_port(3),ct_state(-new+est+trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:2</span><br><span class="line">recirc_id(0),in_port(3),ct_state(-trk),eth(),eth_type(0x0800),ipv4(proto=6,frag=no), packets:0, bytes:0, used:never, actions:ct,recirc(0xf)</span><br><span class="line">$</span><br><span class="line"># ovs-ofctl dump-flows br0</span><br><span class="line"> cookie=0x0, duration=2676.690s, table=0, n_packets=8, n_bytes=434, priority=50,ct_state=-trk,tcp,in_port=&quot;veth_l0&quot; actions=ct(table=0)</span><br><span class="line"> cookie=0x0, duration=1314.571s, table=0, n_packets=4, n_bytes=216, priority=50,ct_state=-trk,tcp,in_port=&quot;veth_r0&quot; actions=ct(table=0)</span><br><span class="line"> cookie=0x0, duration=1330.738s, table=0, n_packets=2, n_bytes=108, priority=50,ct_state=+new,tcp,in_port=&quot;veth_l0&quot; actions=ct(commit),output:&quot;veth_r0&quot;</span><br><span class="line"> cookie=0x0, duration=1304.278s, table=0, n_packets=4, n_bytes=216, priority=50,ct_state=+est,tcp,in_port=&quot;veth_r0&quot; actions=output:&quot;veth_l0&quot;</span><br><span class="line"> cookie=0x0, duration=1291.799s, table=0, n_packets=6, n_bytes=326, priority=50,ct_state=+est,tcp,in_port=&quot;veth_l0&quot; actions=output:&quot;veth_r0&quot;</span><br><span class="line"> cookie=0x0, duration=2694.702s, table=0, n_packets=8, n_bytes=648, priority=10,in_port=&quot;veth_l0&quot; actions=output:&quot;veth_r0&quot;</span><br><span class="line"> cookie=0x0, duration=2686.050s, table=0, n_packets=8, n_bytes=648, priority=10,in_port=&quot;veth_r0&quot; actions=output:&quot;veth_l0&quot;</span><br><span class="line"> cookie=0x0, duration=2720.196s, table=0, n_packets=0, n_bytes=0, priority=0 actions=NORMA</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Shorten-Packet-Path-in-Openstack-with-conntrack-support"><a href="#Shorten-Packet-Path-in-Openstack-with-conntrack-support" class="headerlink" title="Shorten Packet Path in Openstack with conntrack support"></a>Shorten Packet Path in Openstack with conntrack support</h3><ul>
+<li>Ovs in Openstack without conntrack support<br><img src="old-ovs-in-openstack.png" alt="Ovs in Openstack without conntrack support"></li>
+<li>Ovs in Openstack with conntrack support<br><img src="new-ovs-conntract.png" alt="Ovs in Openstack with conntrack support"></li>
+<li>Query conntrack info in kernel<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cat /proc/net/nf_conntrack</span><br><span class="line">$ cat /proc/sys/net/nf_conntrack_max</span><br><span class="line">$ nstat</span><br><span class="line">$ cat /proc/net/snmp</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://docs.openvswitch.org/en/latest/intro/install/general/" target="_blank" rel="noopener">Open vSwitch on Linux</a></li>
+<li><a href="http://docs.openvswitch.org/en/latest/tutorials/ovs-conntrack/" target="_blank" rel="noopener">Open vSwitch Conntrack</a></li>
+<li><a href="https://redhatstackblog.redhat.com/2016/07/22/how-connection-tracking-in-open-vswitch-helps-openstack-performance/" target="_blank" rel="noopener">How connection tracking in Open vSwitch helps OpenStack performance</a></li>
+</ul>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives">Posts</a></li>
+         
+          <li><a href="/Search/">Search</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Match-Fields"><span class="toc-number">1.</span> <span class="toc-text">Match Fields</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Actions"><span class="toc-number">2.</span> <span class="toc-text">Actions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setup-Enviroment"><span class="toc-number">3.</span> <span class="toc-text">Setup Enviroment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shorten-Packet-Path-in-Openstack-with-conntrack-support"><span class="toc-number">4.</span> <span class="toc-text">Shorten Packet Path in Openstack with conntrack support</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-number">5.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=xvirt.ink/2018/09/02/ovs-conntrack/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=xvirt.ink/2018/09/02/ovs-conntrack/&text=Open vSwitch Conntrack"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=xvirt.ink/2018/09/02/ovs-conntrack/&is_video=false&description=Open vSwitch Conntrack"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Open vSwitch Conntrack&body=Check out this article: xvirt.ink/2018/09/02/ovs-conntrack/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=xvirt.ink/2018/09/02/ovs-conntrack/&title=Open vSwitch Conntrack"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=xvirt.ink/2018/09/02/ovs-conntrack/&name=Open vSwitch Conntrack&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2020 Henry
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives">Posts</a></li>
+         
+          <li><a href="/Search/">Search</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
