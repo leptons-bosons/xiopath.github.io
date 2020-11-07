@@ -6,23 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Virtualization GenerationsFull-virtualization -&amp;gt; Para-virtualization -&amp;gt; Hardware-assisted virtualization -&amp;gt; Offload-virtualization -&amp;gt; ? Types of virtualizationTo understand virtualization,">
+    <meta name="description" content="Virtualization GenerationsFull-virtualization -&amp;gt; Para-virtualization -&amp;gt; Hardware-assisted virtualization -&amp;gt; Hardware-offload virtualization -&amp;gt; ? Types of virtualizationTo understand virtua">
 <meta name="keywords" content="virtualization,aarch64,x86_64">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Virtualization: aarch64 vs x86_64">
 <meta property="og:url" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/index.html">
 <meta property="og:site_name" content="xvirt">
-<meta property="og:description" content="Virtualization GenerationsFull-virtualization -&amp;gt; Para-virtualization -&amp;gt; Hardware-assisted virtualization -&amp;gt; Offload-virtualization -&amp;gt; ? Types of virtualizationTo understand virtualization,">
+<meta property="og:description" content="Virtualization GenerationsFull-virtualization -&amp;gt; Para-virtualization -&amp;gt; Hardware-assisted virtualization -&amp;gt; Hardware-offload virtualization -&amp;gt; ? Types of virtualizationTo understand virtua">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/arch64-vhe.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-vt-x_cpu-virtualization.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ring.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/arch64-stage-2.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ept.png">
-<meta property="og:updated_time" content="2020-11-07T02:14:49.157Z">
+<meta property="og:updated_time" content="2020-11-07T02:16:25.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Virtualization: aarch64 vs x86_64">
-<meta name="twitter:description" content="Virtualization GenerationsFull-virtualization -&amp;gt; Para-virtualization -&amp;gt; Hardware-assisted virtualization -&amp;gt; Offload-virtualization -&amp;gt; ? Types of virtualizationTo understand virtualization,">
+<meta name="twitter:description" content="Virtualization GenerationsFull-virtualization -&amp;gt; Para-virtualization -&amp;gt; Hardware-assisted virtualization -&amp;gt; Hardware-offload virtualization -&amp;gt; ? Types of virtualizationTo understand virtua">
 <meta name="twitter:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/arch64-vhe.png">
     
     
@@ -144,7 +144,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="Virtualization-Generations"><a href="#Virtualization-Generations" class="headerlink" title="Virtualization Generations"></a>Virtualization Generations</h1><p>Full-virtualization -&gt; Para-virtualization -&gt; Hardware-assisted virtualization -&gt; Offload-virtualization -&gt; ?</p>
+    <h1 id="Virtualization-Generations"><a href="#Virtualization-Generations" class="headerlink" title="Virtualization Generations"></a>Virtualization Generations</h1><p>Full-virtualization -&gt; Para-virtualization -&gt; Hardware-assisted virtualization -&gt; Hardware-offload virtualization -&gt; ?</p>
 <h1 id="Types-of-virtualization"><a href="#Types-of-virtualization" class="headerlink" title="Types of virtualization"></a>Types of virtualization</h1><p>To understand virtualization, hpervisor should be addressed firtst. Hypervisor enables communication between hardware and a virtual machine so that the virtualizaion accomplished with this abstraction layer(hypervisor). While there is another word virtual machine monitor(VMM), those two terms are typically treated as synonyms. But there is a slightly distinction, a virtual machine monitor is a software that mnages CPU, memory, I/O data transfer, interrupt, and the instruction set on a given virtualized environment, a hypervisor may refer to an operating system(OS) with the VMM.</p>
 <p>Typically, a hypervisor can be divided into two Type 1 and Type 2 hypervisor based on the different level of implementation. Type 1 is sitting on hardware and the communication between hardware and virtual machine is direct, somtime called ‘bare metal hypervisor’. Type 2 hypervisor is on the operating system to manage virtual machine easily with the support of hardware configuration from operating system.</p>
 <table>
