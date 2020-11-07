@@ -6,23 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Types of virtualizationTo understand virtualization, hpervisor should be addressed firtst. Hypervisor enables communication between hardware and a virtual machine so that the virtualizaion accomplishe">
+    <meta name="description" content="Virtualization GenerationsFull-virtualization -&amp;gt; Para-virtualization -&amp;gt; Hardware-assisted virtualization -&amp;gt; Offload-virtualization -&amp;gt; ? Types of virtualizationTo understand virtualization,">
 <meta name="keywords" content="virtualization,aarch64,x86_64">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Virtualization: aarch64 vs x86_64">
 <meta property="og:url" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/index.html">
 <meta property="og:site_name" content="xvirt">
-<meta property="og:description" content="Types of virtualizationTo understand virtualization, hpervisor should be addressed firtst. Hypervisor enables communication between hardware and a virtual machine so that the virtualizaion accomplishe">
+<meta property="og:description" content="Virtualization GenerationsFull-virtualization -&amp;gt; Para-virtualization -&amp;gt; Hardware-assisted virtualization -&amp;gt; Offload-virtualization -&amp;gt; ? Types of virtualizationTo understand virtualization,">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/arch64-vhe.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-vt-x_cpu-virtualization.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ring.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/arch64-stage-2.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ept.png">
-<meta property="og:updated_time" content="2020-11-07T02:08:13.781Z">
+<meta property="og:updated_time" content="2020-11-07T02:14:49.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Virtualization: aarch64 vs x86_64">
-<meta name="twitter:description" content="Types of virtualizationTo understand virtualization, hpervisor should be addressed firtst. Hypervisor enables communication between hardware and a virtual machine so that the virtualizaion accomplishe">
+<meta name="twitter:description" content="Virtualization GenerationsFull-virtualization -&amp;gt; Para-virtualization -&amp;gt; Hardware-assisted virtualization -&amp;gt; Offload-virtualization -&amp;gt; ? Types of virtualizationTo understand virtualization,">
 <meta name="twitter:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/arch64-vhe.png">
     
     
@@ -105,7 +105,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Types-of-virtualization"><span class="toc-number">1.</span> <span class="toc-text">Types of virtualization</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Virtualization-overhead-and-micro-benchmark"><span class="toc-number">2.</span> <span class="toc-text">Virtualization overhead and micro-benchmark</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-assisted-virtualization-technology"><span class="toc-number">3.</span> <span class="toc-text">Hardware-assisted virtualization technology</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Virtualization-Generations"><span class="toc-number">1.</span> <span class="toc-text">Virtualization Generations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Types-of-virtualization"><span class="toc-number">2.</span> <span class="toc-text">Types of virtualization</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Virtualization-overhead-and-micro-benchmark"><span class="toc-number">3.</span> <span class="toc-text">Virtualization overhead and micro-benchmark</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-assisted-virtualization-technology"><span class="toc-number">4.</span> <span class="toc-text">Hardware-assisted virtualization technology</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -144,7 +144,8 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="Types-of-virtualization"><a href="#Types-of-virtualization" class="headerlink" title="Types of virtualization"></a>Types of virtualization</h1><p>To understand virtualization, hpervisor should be addressed firtst. Hypervisor enables communication between hardware and a virtual machine so that the virtualizaion accomplished with this abstraction layer(hypervisor). While there is another word virtual machine monitor(VMM), those two terms are typically treated as synonyms. But there is a slightly distinction, a virtual machine monitor is a software that mnages CPU, memory, I/O data transfer, interrupt, and the instruction set on a given virtualized environment, a hypervisor may refer to an operating system(OS) with the VMM.</p>
+    <h1 id="Virtualization-Generations"><a href="#Virtualization-Generations" class="headerlink" title="Virtualization Generations"></a>Virtualization Generations</h1><p>Full-virtualization -&gt; Para-virtualization -&gt; Hardware-assisted virtualization -&gt; Offload-virtualization -&gt; ?</p>
+<h1 id="Types-of-virtualization"><a href="#Types-of-virtualization" class="headerlink" title="Types of virtualization"></a>Types of virtualization</h1><p>To understand virtualization, hpervisor should be addressed firtst. Hypervisor enables communication between hardware and a virtual machine so that the virtualizaion accomplished with this abstraction layer(hypervisor). While there is another word virtual machine monitor(VMM), those two terms are typically treated as synonyms. But there is a slightly distinction, a virtual machine monitor is a software that mnages CPU, memory, I/O data transfer, interrupt, and the instruction set on a given virtualized environment, a hypervisor may refer to an operating system(OS) with the VMM.</p>
 <p>Typically, a hypervisor can be divided into two Type 1 and Type 2 hypervisor based on the different level of implementation. Type 1 is sitting on hardware and the communication between hardware and virtual machine is direct, somtime called ‘bare metal hypervisor’. Type 2 hypervisor is on the operating system to manage virtual machine easily with the support of hardware configuration from operating system.</p>
 <table>
 <thead>
@@ -310,7 +311,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Types-of-virtualization"><span class="toc-number">1.</span> <span class="toc-text">Types of virtualization</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Virtualization-overhead-and-micro-benchmark"><span class="toc-number">2.</span> <span class="toc-text">Virtualization overhead and micro-benchmark</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-assisted-virtualization-technology"><span class="toc-number">3.</span> <span class="toc-text">Hardware-assisted virtualization technology</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Virtualization-Generations"><span class="toc-number">1.</span> <span class="toc-text">Virtualization Generations</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Types-of-virtualization"><span class="toc-number">2.</span> <span class="toc-text">Types of virtualization</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Virtualization-overhead-and-micro-benchmark"><span class="toc-number">3.</span> <span class="toc-text">Virtualization overhead and micro-benchmark</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-assisted-virtualization-technology"><span class="toc-number">4.</span> <span class="toc-text">Hardware-assisted virtualization technology</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">5.</span> <span class="toc-text">References</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
