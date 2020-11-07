@@ -19,7 +19,7 @@
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ring.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/arch64-stage-2.png">
 <meta property="og:image" content="xvirt.ink/2019/10/05/virtualization-aarch64-vs-x86_64/x86_64-ept.png">
-<meta property="og:updated_time" content="2019-10-13T02:25:42.805Z">
+<meta property="og:updated_time" content="2020-11-07T02:08:13.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Virtualization: aarch64 vs x86_64">
 <meta name="twitter:description" content="Types of virtualizationTo understand virtualization, hpervisor should be addressed firtst. Hypervisor enables communication between hardware and a virtual machine so that the virtualizaion accomplishe">
@@ -225,36 +225,62 @@
 </table>
 <p>All measures unit in cycles by call tsc(Time Stamp Counter).</p>
 <h1 id="Hardware-assisted-virtualization-technology"><a href="#Hardware-assisted-virtualization-technology" class="headerlink" title="Hardware-assisted virtualization technology"></a>Hardware-assisted virtualization technology</h1><ul>
+<li><p>CPU Virtualization</p>
+<ul>
 <li>VHE and VTx<ul>
 <li>aarch64, Virtualization Host Extensions(VHE), vmid/asid<br><img src="arch64-vhe.png" alt="Virtualization Host Extensions(VHE)"></li>
 <li>x86_64 VTx: vmcs, root and non-root mode, vpid.<br><img src="x86_64-vt-x_cpu-virtualization.png" alt="x86_64 CPU Virtualization with VT-x"></li>
 </ul>
 </li>
-<li><p>Privilege levels</p>
-<ul>
+<li>Privilege levels<ul>
 <li>aarch64 excpetion level, EL 0(userspace applications), EL 1(guest kernel), EL 2(host kernel/hypervisor), EL 3(secure)</li>
 <li>x86_64 ring, ring 0(hypervisor under root mode, guest under non-root mode), ring 1, ring 2, ring3(applications)<br><img src="x86_64-ring.png" alt="x86_64 rings"></li>
 </ul>
 </li>
-<li><p>GVA to PHA translation</p>
+</ul>
+</li>
+<li><p>Memory Virtualization</p>
 <ul>
+<li>GVA to PHA translation<ul>
 <li>aarch64, stage 2 translation, GVA –mmu-&gt; IPA/GPA –mmu-&gt; HPA<br><img src="arch64-stage-2.png" alt="Stage 2 translation"></li>
 <li>x86_64, extended page tables(EPT)<br><img src="x86_64-ept.png" alt="EPT"></li>
 </ul>
 </li>
-<li>Virtual interrupt<ul>
-<li>APIC(APICv), pmtimer</li>
-<li>GIC(vGIC), the generic timers</li>
 </ul>
 </li>
+<li>IO &amp; Timers &amp; Interrupt  Virtualization</li>
 </ul>
-<p>Timers Notes:</p>
-<ul>
-<li>Real time is expressed in nanoseconds passed since machine boot and is maintained to the accuracy of the processor’s cycle counter and can be frequency-locked to an external time source (for example, via NTP).</li>
-<li>A domain’s virtual time only advances while it is executing: this is typically used by the guest OS scheduler to ensure correct sharing of its timeslice between application processes.</li>
-<li>Finally, wall-clock time is specified as an offset to be added to the current real time. This allows the wall-clock time to be adjusted without affecting the forward progress of real time.</li>
-</ul>
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">types</th>
+<th style="text-align:left">x86_64</th>
+<th style="text-align:left">aarch64</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">IO</td>
+<td style="text-align:left">IOMMU(vIOMMU)</td>
+<td style="text-align:left">SMMU(vSMMU)</td>
+</tr>
+<tr>
+<td style="text-align:left">Timers</td>
+<td style="text-align:left">pmtimer</td>
+<td style="text-align:left">the generic timers</td>
+</tr>
+<tr>
+<td style="text-align:left">Virtual interrupt</td>
+<td style="text-align:left">APIC(vAPIC)</td>
+<td style="text-align:left">GIC(vGIC)</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Timers Notes:
+    Real time is expressed in nanoseconds passed since machine boot and is maintained to the accuracy of the processor’s cycle counter and can be frequency-locked to an external time source (for example, via NTP).
+    A domain’s virtual time only advances while it is executing: this is typically used by the guest OS scheduler to ensure correct sharing of its timeslice between application processes.
+    Finally, wall-clock time is specified as an offset to be added to the current real time. This allows the wall-clock time to be adjusted without affecting the forward progress of real time.
+</code></pre><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
 <li><a href="https://developer.arm.com/architectures/learn-the-architecture/armv8-a-virtualization" target="_blank" rel="noopener">Learn the architecture of armv8 virtualization</a></li>
 <li><a href="https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.html" target="_blank" rel="noopener">Intel® 64 and IA-32 Architectures Developer’s Manual</a></li>
 </ul>
