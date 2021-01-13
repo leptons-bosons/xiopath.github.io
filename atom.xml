@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xvirt.ink/"/>
-  <updated>2020-11-22T12:43:41.828Z</updated>
+  <updated>2021-01-13T14:02:28.803Z</updated>
   <id>xvirt.ink/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>the Papers</title>
+    <link href="xvirt.ink/2021/01/13/papers/"/>
+    <id>xvirt.ink/2021/01/13/papers/</id>
+    <published>2021-01-13T13:23:01.000Z</published>
+    <updated>2021-01-13T14:02:28.803Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="the-Computer-Architecture"><a href="#the-Computer-Architecture" class="headerlink" title="the Computer Architecture"></a>the Computer Architecture</h3><pre><code>- [The First Draft Report on the EDVAC](http://abelgo.cn/cs101/papers/Neumann.pdf), 1945</code></pre><h3 id="the-Cloud"><a href="#the-Cloud" class="headerlink" title="the Cloud"></a>the Cloud</h3><pre><code>- [Above the Clouds: A Berkeley View of Cloud Computing](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-28.pdf), 2009- [Cloud Programming Simplified: A Berkeley View on Serverless Computing](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf), 2019</code></pre><h3 id="the-AI"><a href="#the-AI" class="headerlink" title="the AI"></a>the AI</h3><pre><code>- [A Berkeley View of Systems Challenges for AI](https://arxiv.org/pdf/1712.05855.pdf), 2017</code></pre><h3 id="the-Industrail-Practice"><a href="#the-Industrail-Practice" class="headerlink" title="the Industrail Practice"></a>the Industrail Practice</h3><pre><code>- [What Every Programmer Should Know About Memory](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf), 2007</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;the-Computer-Architecture&quot;&gt;&lt;a href=&quot;#the-Computer-Architecture&quot; class=&quot;headerlink&quot; title=&quot;the Computer Architecture&quot;&gt;&lt;/a&gt;the Compute
+      
+    
+    </summary>
+    
+      <category term="quotes" scheme="xvirt.ink/categories/quotes/"/>
+    
+    
+      <category term="paper" scheme="xvirt.ink/tags/paper/"/>
+    
+  </entry>
   
   <entry>
     <title>The KVM Weather Report</title>
@@ -47,9 +72,9 @@
     <link href="xvirt.ink/2020/10/28/expert-association-map/"/>
     <id>xvirt.ink/2020/10/28/expert-association-map/</id>
     <published>2020-10-28T14:23:01.000Z</published>
-    <updated>2020-11-22T12:40:43.939Z</updated>
+    <updated>2021-01-13T14:14:57.190Z</updated>
     
-    <content type="html"><![CDATA[<p>Build a map of technical experts and associations, try to stand on the shoulder of giants :)</p><h3 id="Experts"><a href="#Experts" class="headerlink" title="Experts"></a>Experts</h3><ul><li>Computer Scientists<ul><li><a href="https://scholar.google.com.sg/citations?hl=en&amp;user=tp07xT0AAAAJ" target="_blank" rel="noopener">John L. Hennessy</a>: Stanford University</li><li><a href="https://scholar.google.com.sg/citations?user=Wj4ZBFIAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="noopener">David A. Patterson</a>: Professor of Computer Science, UC Berkeley</li></ul></li><li>Maintainors<ul><li>KVM &amp; Qemu: Gleb Natapov, Paolo Bonzini</li></ul></li></ul><h3 id="Associations"><a href="#Associations" class="headerlink" title="Associations"></a>Associations</h3><ul><li>General: standard organizations, industry associations and conferences<ul><li><a href="https://www.acm.org" target="_blank" rel="noopener">ACM</a>: Association for Computing Machinery, e.g. <a href="https://dl.acm.org/conference/vee" target="_blank" rel="noopener">VEE</a></li><li><a href="http://ietf.org" target="_blank" rel="noopener">IETF</a>: Internet Engineering Task Force</li><li><a href="https://www.ieee.org/" target="_blank" rel="noopener">IEEE</a>: Institute of Electrical and Electronics Engineers</li><li><a href="https://www.ccf.org.cn" target="_blank" rel="noopener">CCF</a>: China Computer Federation</li><li><a href="https://www.usenix.org/" target="_blank" rel="noopener">usenix</a>: <a href="https://www.usenix.org/conferences" target="_blank" rel="noopener">conferences</a>, OSDI, NSDI</li><li><a href="https://www.linaro.org/events/" target="_blank" rel="noopener">Linaro Events</a></li></ul></li><li>Network: standard organizations, industry associations and conferences<ul><li><a href="https://www.tiaonline.org" target="_blank" rel="noopener">TIA</a>: Telecommunications Industry Association</li><li><a href="http://www.incits.org" target="_blank" rel="noopener">INCITS</a>: the InterNational Committee for Information Technology Standards</li><li><a href="http://www.sigcomm.org" target="_blank" rel="noopener">SIGCOMM</a>: SIGCOMM is ACM’s professional forum for discussing communications and computer networks</li><li><a href="https://www.oasis-open.org/committees/" target="_blank" rel="noopener">OASIS Technical Committees</a>: <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=virtio" target="_blank" rel="noopener">virtio</a> etc.</li></ul></li><li>Hypervisor: standard organizations, industry associations and conferences<ul><li><a href="https://events.linuxfoundation.org/events/kvm-forum" target="_blank" rel="noopener">KVM Forum</a></li><li><a href="https://events.docker.com/events/dockercon/" target="_blank" rel="noopener">DockerCon</a></li><li><a href="https://www.cncf.io/" target="_blank" rel="noopener">CNCF</a>: cloud native computing foundation</li></ul></li><li>Storage: standard organizations, industry associations and conferences<ul><li><a href="https://nvmexpress.org" target="_blank" rel="noopener">NVMe</a></li><li><a href="https://www.snia.org/" target="_blank" rel="noopener">SNIA</a>: Storage Networking Industry Association</li><li><a href="https://www.snia.org/events/storage-developer" target="_blank" rel="noopener">SDC</a>: Storage Developer Conference</li></ul></li><li>Chips<ul><li><a href="https://www.hotchips.org/" target="_blank" rel="noopener">Hot Chips</a>: A Symposium on High Performance Chips</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>Build a map of technical experts and associations, try to stand on the shoulder of giants :)</p><h3 id="Experts"><a href="#Experts" class="headerlink" title="Experts"></a>Experts</h3><ul><li>Computer Scientists<ul><li><a href="https://scholar.google.com.sg/citations?hl=en&amp;user=tp07xT0AAAAJ" target="_blank" rel="noopener">John L. Hennessy</a>: Stanford University, <a href="https://scholar.google.com.sg/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=John+L.+Hennessy&amp;btnG=" target="_blank" rel="noopener">scholar links</a></li><li><a href="https://scholar.google.com.sg/citations?user=Wj4ZBFIAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="noopener">David A. Patterson</a>: Professor of Computer Science, UC Berkeley, <a href="https://scholar.google.com.sg/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=David+A.+Patterson&amp;btnG=" target="_blank" rel="noopener">scholar links</a></li></ul></li><li>Maintainors<ul><li>KVM &amp; Qemu: <a href="https://scholar.google.com.sg/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=Gleb+Natapov&amp;btnG=" target="_blank" rel="noopener">Gleb Natapov</a>, <a href="https://scholar.google.com.sg/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=Paolo+Bonzini&amp;btnG=" target="_blank" rel="noopener">Paolo Bonzini</a></li></ul></li><li>Industry<ul><li>James B. Keller, a Microprocessor Engineer, <a href="https://scholar.google.com.sg/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=James+B.+Keller&amp;btnG=" target="_blank" rel="noopener">scholar links</a></li></ul></li></ul><h3 id="Associations"><a href="#Associations" class="headerlink" title="Associations"></a>Associations</h3><ul><li>General: standard organizations, industry associations and conferences<ul><li><a href="https://www.acm.org" target="_blank" rel="noopener">ACM</a>: Association for Computing Machinery, e.g. <a href="https://dl.acm.org/conference/vee" target="_blank" rel="noopener">VEE</a></li><li><a href="http://ietf.org" target="_blank" rel="noopener">IETF</a>: Internet Engineering Task Force</li><li><a href="https://www.ieee.org/" target="_blank" rel="noopener">IEEE</a>: Institute of Electrical and Electronics Engineers</li><li><a href="https://www.ccf.org.cn" target="_blank" rel="noopener">CCF</a>: China Computer Federation</li><li><a href="https://www.usenix.org/" target="_blank" rel="noopener">usenix</a>: <a href="https://www.usenix.org/conferences" target="_blank" rel="noopener">conferences</a>, OSDI, NSDI</li><li><a href="https://www.linaro.org/events/" target="_blank" rel="noopener">Linaro Events</a></li></ul></li><li>Network: standard organizations, industry associations and conferences<ul><li><a href="https://www.tiaonline.org" target="_blank" rel="noopener">TIA</a>: Telecommunications Industry Association</li><li><a href="http://www.incits.org" target="_blank" rel="noopener">INCITS</a>: the InterNational Committee for Information Technology Standards</li><li><a href="http://www.sigcomm.org" target="_blank" rel="noopener">SIGCOMM</a>: SIGCOMM is ACM’s professional forum for discussing communications and computer networks</li><li><a href="https://www.oasis-open.org/committees/" target="_blank" rel="noopener">OASIS Technical Committees</a>: <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=virtio" target="_blank" rel="noopener">virtio</a> etc.</li></ul></li><li>Hypervisor: standard organizations, industry associations and conferences<ul><li><a href="https://events.linuxfoundation.org/events/kvm-forum" target="_blank" rel="noopener">KVM Forum</a></li><li><a href="https://events.docker.com/events/dockercon/" target="_blank" rel="noopener">DockerCon</a></li><li><a href="https://www.cncf.io/" target="_blank" rel="noopener">CNCF</a>: cloud native computing foundation</li></ul></li><li>Storage: standard organizations, industry associations and conferences<ul><li><a href="https://nvmexpress.org" target="_blank" rel="noopener">NVMe</a></li><li><a href="https://www.snia.org/" target="_blank" rel="noopener">SNIA</a>: Storage Networking Industry Association</li><li><a href="https://www.snia.org/events/storage-developer" target="_blank" rel="noopener">SDC</a>: Storage Developer Conference</li></ul></li><li>Chips<ul><li><a href="https://www.hotchips.org/" target="_blank" rel="noopener">Hot Chips</a>: A Symposium on High Performance Chips</li></ul></li></ul>]]></content>
     
     <summary type="html">
     
@@ -545,37 +570,6 @@
       <category term="k-nearest-neighbors" scheme="xvirt.ink/tags/k-nearest-neighbors/"/>
     
       <category term="more algorithms" scheme="xvirt.ink/tags/more-algorithms/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Graph and Greedy algorithms</title>
-    <link href="xvirt.ink/2018/08/28/graph-greedy-algorithms/"/>
-    <id>xvirt.ink/2018/08/28/graph-greedy-algorithms/</id>
-    <published>2018-08-27T16:01:45.000Z</published>
-    <updated>2018-08-30T15:32:20.530Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Breadth-first-search"><a href="#Breadth-first-search" class="headerlink" title="Breadth-first search"></a>Breadth-first search</h3><ul><li>Breadth-first search is used to calculate the shortest path for an unweighted graph.</li><li>And answer the following questions:<ul><li>Question type 1: Is there a path from node A to node B?</li><li>Question type 2: What is the shortest path from node A to node B?</li></ul></li><li><p>A-&gt;H, with breadth first search, the shortest path is A-&gt;C-&gt;G-&gt;H<br><img src="breadth-first.png" alt="unweighted directed graph: A-&gt;H"></p></li><li><p>Caution: once you check someone, make sure you don’t check them again. Otherwise, you might end up in an infinite loop.</p></li></ul><h3 id="Dijkstra’s-algorithm"><a href="#Dijkstra’s-algorithm" class="headerlink" title="Dijkstra’s algorithm"></a>Dijkstra’s algorithm</h3><ul><li>Dijkstra’s algorithm is used to calculate the shortest path for a weighted graph.</li><li>Dijkstra’s algorithm works when all the weights are positive.</li><li>If you have negative weights, use the <a href="https://en.wikipedia.org/wiki/Bellman–Ford_algorithm" target="_blank" rel="noopener">Bellman-Ford algorithm</a>.</li><li>Same graph as shown above but with weighted value(the cost of the path), A-&gt;H, we will get another path(A-&gt;B-&gt;F-&gt;G-&gt;H):<br><img src="dijkstra-algorithm.png" alt="weighted directed graph: A-&gt;H"></li><li>Dijkstra’s algorithm iteration for the above graph:<br><img src="dijkstra-algorithm-iteration.png" alt="dijkstra&#39;s algorithm iteration"></li></ul><h3 id="Gready-algorithm"><a href="#Gready-algorithm" class="headerlink" title="Gready algorithm"></a>Gready algorithm</h3><ul><li>Typical applicated case, NP(nondeterministic polynomial time)-complete problems:<ul><li>The knapsack problem</li><li>The set-covering problem</li><li>Traveling salesperson</li></ul></li><li>Approximation algorithms, NP-complete problems, how can you tell if the problem is a NP-complete problem:<ul><li>Your algorithm runs quickly with a handful of items but really slows down with more items.</li><li>“All combinations of X” usually point to an NP-complete problem.</li><li>Do you have to calculate “every possible version” of X because you can’t break it down into smaller sub-problems? Might be NP-complete.</li><li>If your problem involves a sequence (such as a sequence of cities, like traveling salesperson), and it’s hard to solve, it might be NP-complete.</li><li>If your problem involves a set (like a set of radio stations) and it’s hard to solve, it might be NP-complete.</li><li>Can you restate your problem as the set-covering problem or the traveling-salesperson problem? Then your problem is definitely NP-complete.</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Breadth-first-search&quot;&gt;&lt;a href=&quot;#Breadth-first-search&quot; class=&quot;headerlink&quot; title=&quot;Breadth-first search&quot;&gt;&lt;/a&gt;Breadth-first search&lt;/h3&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="quotes" scheme="xvirt.ink/categories/quotes/"/>
-    
-    
-      <category term="algorithm" scheme="xvirt.ink/tags/algorithm/"/>
-    
-      <category term="breadth-first search" scheme="xvirt.ink/tags/breadth-first-search/"/>
-    
-      <category term="dijkstra" scheme="xvirt.ink/tags/dijkstra/"/>
-    
-      <category term="greedy" scheme="xvirt.ink/tags/greedy/"/>
     
   </entry>
   
