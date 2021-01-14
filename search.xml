@@ -6,7 +6,7 @@
       <title>the Papers</title>
       <link href="/2021/01/13/papers/"/>
       <url>/2021/01/13/papers/</url>
-      <content type="html"><![CDATA[<h3 id="the-Computer-Architecture"><a href="#the-Computer-Architecture" class="headerlink" title="the Computer Architecture"></a>the Computer Architecture</h3><ul><li><a href="http://abelgo.cn/cs101/papers/Neumann.pdf" target="_blank" rel="noopener">The First Draft Report on the EDVAC</a>, 1945</li></ul><h3 id="the-Cloud"><a href="#the-Cloud" class="headerlink" title="the Cloud"></a>the Cloud</h3><ul><li><a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-28.pdf" target="_blank" rel="noopener">Above the Clouds: A Berkeley View of Cloud Computing</a>, 2009</li><li><a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf" target="_blank" rel="noopener">Cloud Programming Simplified: A Berkeley View on Serverless Computing</a>, 2019</li></ul><h3 id="the-AI"><a href="#the-AI" class="headerlink" title="the AI"></a>the AI</h3><ul><li><a href="https://arxiv.org/pdf/1712.05855.pdf" target="_blank" rel="noopener">A Berkeley View of Systems Challenges for AI</a>, 2017</li></ul><h3 id="the-Industrail-Practice"><a href="#the-Industrail-Practice" class="headerlink" title="the Industrail Practice"></a>the Industrail Practice</h3><ul><li><a href="https://people.freebsd.org/~lstewart/articles/cpumemory.pdf" target="_blank" rel="noopener">What Every Programmer Should Know About Memory</a>, 2007</li></ul>]]></content>
+      <content type="html"><![CDATA[<h3 id="the-Computer-Architecture"><a href="#the-Computer-Architecture" class="headerlink" title="the Computer Architecture"></a>the Computer Architecture</h3><ul><li><a href="http://abelgo.cn/cs101/papers/Neumann.pdf" target="_blank" rel="noopener">The First Draft Report on the EDVAC</a>, 1945</li></ul><h3 id="the-Cloud"><a href="#the-Cloud" class="headerlink" title="the Cloud"></a>the Cloud</h3><ul><li><a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-28.pdf" target="_blank" rel="noopener">Above the Clouds: A Berkeley View of Cloud Computing</a>, 2009</li><li><a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf" target="_blank" rel="noopener">Cloud Programming Simplified: A Berkeley View on Serverless Computing</a>, 2019</li></ul><h3 id="the-AI"><a href="#the-AI" class="headerlink" title="the AI"></a>the AI</h3><ul><li><a href="https://arxiv.org/pdf/1712.05855.pdf" target="_blank" rel="noopener">A Berkeley View of Systems Challenges for AI</a>, 2017</li></ul><h3 id="the-Industrial-Practice"><a href="#the-Industrial-Practice" class="headerlink" title="the Industrial Practice"></a>the Industrial Practice</h3><ul><li><a href="https://people.freebsd.org/~lstewart/articles/cpumemory.pdf" target="_blank" rel="noopener">What Every Programmer Should Know About Memory</a>, 2007</li></ul>]]></content>
       
       <categories>
           
@@ -825,9 +825,9 @@
       
         <tags>
             
-            <tag> industry </tag>
-            
             <tag> tool </tag>
+            
+            <tag> industry </tag>
             
             <tag> bookmark </tag>
             
